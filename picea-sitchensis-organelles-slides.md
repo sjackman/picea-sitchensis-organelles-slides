@@ -82,33 +82,88 @@ Synopsis
 [LINKS]: https://github.com/warrenlr/LINKS
 [Supernova]: http://support.10xgenomics.com/de-novo-assembly/software/overview/welcome
 
+----------------------------------------
+
+![ARCS](images/arcs.png)
+
+Spruce Organelles Assembly and Annotation
+================================================================================
+
+## White Spruce Organelles
+
++ Illumina paired-end
+    + One 2x300 MiSeq lane for the plastid
+    + One 2x150 HiSeq lane for the mitochondrion
++ Illumina mate-pair for scaffolding
++ Assemble with [ABySS][]
+    + Complete plastid genome in one contig
+	+ Draft mitochondrial genome in 36 scaffolds
++ Close gaps with [Sealer][]
++ Polish with [Pilon][]
++ Annotate genes with [Maker][] and [Prokka][]
++ Manual annotation of difficult genes
+    + Three genes with short initial exons < 10 bp
+    + One trans-spliced gene (*rps12*)
+
+----------------------------------------
+
+![White spruce plastid](images/picea-glauca-plastid.png)
+
+----------------------------------------
+
+![White spruce mitochondrion](images/picea-glauca-mitochondrion.png)
+
+## Sitka Spruce Plastid
+
++ Illumina 2x150 HiSeq of 10x GemCode
+    + One library compared to both Illumina paired-end and mate-pair
++ Assemble with [ABySS][] to assemble
++ Scaffold with [ARCS][] and [LINKS][]
++ Complete plastid genome in one contig
++ Close gaps with [Sealer][]
++ Polish with [Pilon][]
++ Annotate with [Maker][]
++ Manual annotation of difficult genes
+    + Three genes with short initial exons < 10 bp
+    + One trans-spliced gene (*rps12*)
++ Perfect synteny to white spruce plastid
+
+----------------------------------------
+
+![Sitka spruce plastid](images/picea-sitchensis-plastid.png)
+
 Sitka Spruce Mitochondrion
 ================================================================================
 
 ## Aim
 
-Assemble the Sitka spruce mitochondrion into a single scaffold\* using 10x Chromium data.
+Assemble the Sitka spruce mitochondrion into a single scaffold\* using 10x Chromium data and annotate it.
 
 \* if it has a single chromosome
 
 ## Method
 
-+ Align Sitka spruce reads to white spruce organelles
-+ Filter out mismapped nuclear reads (AS < 40)
++ Align Sitka spruce reads to white spruce organelles with [LongRanger][]
 + Identify 10x barcodes that contain at least one mitochondrial molecule
     + Four properly-paired mitochondrial reads
-+ Select all the reads of these mitochondrial barcodes
-+ Assemble with [ABySS][]
++ Assemble these mitochondrial barcodes with [ABySS][]
 + Scaffold with [ARCS][] and [LINKS][]
 + Annotate genes with [MAKER][] and [Prokka][]
-+ Submit to NCBI GenBank
+
+[LongRanger]: https://support.10xgenomics.com/genome-exome/software/pipelines/latest/what-is-long-ranger
+
+----------------------------------------
+
+![Sitka spruce mitochondrion](images/picea-sitchensis-mitochondrion.png)
 
 ## To do
 
++ Identify mitochondrial barcodes using the draft sitka spruce assembly rather than white spruce assembly
 + Fill gaps with [Sealer][] and [Kollector][]
 + Polish with [Pilon][]
-+ Identify more introns using [RNAweasel][]
-+ Try an assembly with [Supernova][]
++ Identify introns using [RNAweasel][]
++ Assemble with [Supernova][]
++ Submit to NCBI GenBank
 
 [Kollector]: https://github.com/bcgsc/kollector
 [MAKER]: http://www.yandell-lab.org/software/maker.html
