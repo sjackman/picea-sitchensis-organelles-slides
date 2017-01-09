@@ -1,12 +1,12 @@
 ---
-title: 'Organellar Genomes of *Picea Sitchensis* Assembly and Annotation'
+title: 'Organellar Genomes of *Picea Sitchensis*'
 author: 'Shaun D Jackman'
 date: '2017-01-15'
 history: true
 slideNumber: true
 ---
 
-## Organellar Genomes of Sitka Spruce (*Picea sitchensis*) Assembly and Annotation
+## Organellar Genomes of Sitka Spruce (*Picea sitchensis*) Assembly and Annotation
 
 Shaun Jackman [\@sjackman][]
 
@@ -44,7 +44,7 @@ Synopsis
 ## Assembly with 10x Genomics
 
 + One lane of HiSeq 10x Gemcode data assembles the **124 kbp plastid genome**
-+ One lane of HiSeq 10x Chromium data assembles the estimated **6 Mbp mitochondrial genome**
++ One lane of HiSeq 10x Chromium data assembles the estimated **6 Mbp mitochondrial genome**
 + The assembly is composed of **organellar sequence** as well as **nuclear repeat elements**
 + The organellar sequences are separated from the assembly by **classifying the sequences** using their **length, depth of coverage, GC content, and homology**
 
