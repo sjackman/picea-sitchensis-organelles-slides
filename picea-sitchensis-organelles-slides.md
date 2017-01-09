@@ -40,13 +40,12 @@ Synopsis
 + The SMarTForests consortium published the draft sequence of the 20 gigabase white spruce genome (Birol et al. 2013)
 + Whole genome sequencing data contains reads from both the nuclear and organellar genomes
 + Reads of the organellar genomes are abundant, because each cell contains hundreds of mitochondria and plastids
-
-## Assembly with 10x Genomics
-
-+ One lane of HiSeq 10x Gemcode data assembles the **124 kbp plastid genome**
-+ One lane of HiSeq 10x Chromium data assembles the estimated **6 Mbp mitochondrial genome**
 + The assembly is composed of **organellar sequence** as well as **nuclear repeat elements**
 + The organellar sequences are separated from the assembly by **classifying the sequences** using their **length, depth of coverage, GC content, and homology**
+
+----------------------------------------
+
+![White spruce depth vs percent GC](images/picea-glauca-depth-gc.png)
 
 ## Work so far
 
@@ -64,16 +63,20 @@ Synopsis
 
 ![10x Genomics Chromium Linked Reads](images/10xgenomics.png)
 
-## Assemble Chromium
+## 10x Genomics Chromium
 
+### Assemble
+
++ [ABySS][]
 + [Supernova][]
-+ [ABySS][] for contigs, scaffolding is under way
 
-## Scaffold with Chromium
+### Scaffold
 
-+ [Fragscaff][] <small>(intended for an older technology)</small>
-+ [Architect][]
-+ BCGSC [ARCS][] with [LINKS][]
++ [ARCS][] with [LINKS][]
++ [Architect][] \
+  intended for synthetic long reads
++ [Fragscaff][] \
+  intended for contiguity-preserving transposition
 
 [ABySS]: https://github.com/bcgsc/abyss
 [Architect]: https://github.com/kuleshov/architect
