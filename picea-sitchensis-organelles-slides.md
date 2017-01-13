@@ -1,5 +1,4 @@
 ---
-title: 'Organellar Genomes of *Picea Sitchensis*'
 author: 'Shaun D Jackman'
 date: '2017-01-15'
 history: true
@@ -8,89 +7,78 @@ slideNumber: true
 
 ## Organellar Genomes of Sitka Spruce (*Picea sitchensis*) Assembly and Annotation
 
-Shaun Jackman [\@sjackman][]
+**Shaun Jackman** [\@sjackman][]
+
+Benjamin P Vandervalk, Rene L Warren, Hamid Mohamadi, Justin Chu, Sarah Yeo, Lauren Coombe, Stephen Pleasance, Robin J Coope, Joerg Bohlmann, Steven JM Jones, Inanc Birol
 
 2017-01-15
 
-[![Creative Commons Attribution License](images/cc-by.png)][cc-by]
+<https://sjackman.ca/picea-sitchensis-organelles-slides>
 
-[Fork me on GitHub!][]
+[![Creative Commons Attribution License](images/cc-by.png)][cc-by]
 
 [\@sjackman]: http://twitter.com/sjackman
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
-[Fork me on GitHub!]: https://github.com/sjackman/picea-sitchensis-organelles-slides
 
 ## Shaun Jackman
 
-| [BC Cancer Agency Genome Sciences Centre][]
+| [BCCA Genome Sciences Centre][]
 | Vancouver, Canada
 | [\@sjackman][] | [github.com/sjackman][] | [sjackman.ca][]
 
 ![](images/sjackman.jpg)
 
-[BC Cancer Agency Genome Sciences Centre]: http://bcgsc.ca
+[BCCA Genome Sciences Centre]: http://bcgsc.ca
 [github.com/sjackman]: https://github.com/sjackman
 [sjackman.ca]: http://sjackman.ca
 
-Synopsis
+Background
 ================================================================================
+
+## Conifer Genomics
+
++ Conifer genomes are large, about twenty gigabases
++ Before 2013 no conifer genomes had been published
++ Then three in the period of one year!
+    + Loblolly pine (Neale et al. 2014)
+    + Norway spruce (Nystedt et al. 2013)
+    + White spruce (Birol et al. 2013)
 
 ## Genome Skimming
 
-+ The SMarTForests consortium published the draft sequence of the 20 gigabase white spruce genome (Birol et al. 2013)
-+ Whole genome sequencing data contains reads from both the nuclear and organellar genomes
-+ Reads of the organellar genomes are abundant, because each cell contains hundreds of mitochondria and plastids
-+ The assembly is composed of **organellar sequence** as well as **nuclear repeat elements**
-+ The organellar sequences are separated from the assembly by **classifying the sequences** using their **length, depth of coverage, GC content, and homology**
++ Whole genome sequencing data contains both nuclear and organellar reads
++ Each cell contains hundreds of mitochondria and plastids
++ Reads of the organellar genomes are abundant
++ Organellar sequences assemble well with a single lane
++ Single-copy nuclear sequences are too low depth to assemble well
 
 ----------------------------------------
 
 ![White spruce depth vs percent GC](images/picea-glauca-depth-gc.png)
 
+## Classification
+
++ Assembly is composed of
+    + organellar sequence
+	+ nuclear repeat elements
+	+ contamination
++ Identify putative organellar sequences by
+    + homology to known organellar sequences
+    + depth of coverage
+    + length
+    + GC content
+
 ## Work so far
 
-+ The assembled organellar genomes were annotated for their coding genes, ribosomal RNA (rRNA), and transfer RNA (tRNA)
-+ We assembled and published the complete annotated sequence of the **white spruce spruce plastid genome** and **draft white spruce mitochondrial genome** \
++ Assembled and published the annotated sequences of \
+  complete **white spruce plastid** genome \
+  draft **white spruce mitochondrial** genome \
   (Jackman et al. 2015)
-+ We assembled and published the complete annotated sequence of the **Sitka spruce plastid genome** \
++ Assembled and published the annotated sequence of \
+  complete **Sitka spruce plastid** genome \
   (Coombe et al. 2016)
-+ We are currently working to assemble and annotate the **Sitka spruce mitochondrial genome**
-
-10x Genomics Chromium
-================================================================================
-
-----------------------------------------
-
-![10x Genomics Chromium Linked Reads](images/10xgenomics.png)
-
-## 10x Genomics Chromium
-
-### Assemble
-
-+ [ABySS][]
-+ [Supernova][]
-
-### Scaffold
-
-+ [ARCS][] with [LINKS][]
-+ [Architect][] \
-  intended for synthetic long reads
-+ [Fragscaff][] \
-  intended for contiguity-preserving transposition
-
-[ABySS]: https://github.com/bcgsc/abyss
-[Architect]: https://github.com/kuleshov/architect
-[ARCS]: https://github.com/bcgsc/arcs
-[Fragscaff]: http://krishna.gs.washington.edu/software.html
-[LINKS]: https://github.com/warrenlr/LINKS
-[Supernova]: http://support.10xgenomics.com/de-novo-assembly/software/overview/welcome
-
-----------------------------------------
-
-![ARCS](images/arcs.png)
-
-Spruce Organelles Assembly and Annotation
-================================================================================
++ Currently working to assemble and annotate the \
+  draft **Sitka spruce mitochondrial** genome
 
 ## White Spruce Organelles
 
@@ -116,19 +104,29 @@ Spruce Organelles Assembly and Annotation
 
 ![White spruce mitochondrion](images/picea-glauca-mitochondrion.png)
 
+10x Genomics Chromium
+================================================================================
+
+----------------------------------------
+
+![10x Genomics Chromium Linked Reads <http://www.10xgenomics.com/assembly/>](images/10xgenomics.png)
+
+----------------------------------------
+
+![ARCS <https://github.com/bcgsc/arcs>](images/arcs.png)
+
 ## Sitka Spruce Plastid
 
-+ Illumina 2x150 HiSeq of 10x GemCode
-    + One library compared to both Illumina paired-end and mate-pair
-+ Assemble with [ABySS][] to assemble
++ One lane of Illumina 2x150 HiSeq of 10x GemCode
++ One library rather than two: \
+  Illumina paired-end and mate-pair
++ Assemble with [ABySS][]
 + Scaffold with [ARCS][] and [LINKS][]
-+ Complete plastid genome in one contig
 + Close gaps with [Sealer][]
 + Polish with [Pilon][]
 + Annotate with [Maker][]
 + Manual annotation of difficult genes
-    + Three genes with short initial exons < 10 bp
-    + One trans-spliced gene (*rps12*)
++ Complete plastid genome in one contig
 + Perfect synteny to white spruce plastid
 
 ----------------------------------------
@@ -153,30 +151,75 @@ Assemble the Sitka spruce mitochondrion into a single scaffold\* using 10x Chrom
 + Scaffold with [ARCS][] and [LINKS][]
 + Annotate genes with [MAKER][] and [Prokka][]
 
-[LongRanger]: https://support.10xgenomics.com/genome-exome/software/pipelines/latest/what-is-long-ranger
+## Results
+
++ Largest scaffold is 1.2 Mbp
++ 50% of the 6 Mbp genome in 4 scaffolds > 460 kbp
++ 75% of the genome in 13 scaffolds > 100 kbp
++ 1/223 or 0.45% of reads are mitochondrial
++ 115 ORFs with similarity to known mitochondrial genes
++ 1,154 other ORFS ≥ 300 bp
++ 9 Type II introns in 6 genes
 
 ----------------------------------------
 
 ![Sitka spruce mitochondrion](images/picea-sitchensis-mitochondrion.png)
 
-## To do
+fin
+================================================================================
 
-+ Identify mitochondrial barcodes using the draft sitka spruce assembly rather than white spruce assembly
-+ Fill gaps with [Sealer][] and [Kollector][]
-+ Polish with [Pilon][]
-+ Identify introns using [RNAweasel][]
-+ Assemble with [Supernova][]
-+ Submit to NCBI GenBank
+## Shaun Jackman
 
+| [BCCA Genome Sciences Centre][]
+| Vancouver, Canada
+| [\@sjackman][] | [github.com/sjackman][] | [sjackman.ca][]
+
+**Slides** \
+<https://sjackman.ca/picea-sitchensis-organelles-slides>
+
+**Markdown source code** \
+[https://github.com/sjackman/ \
+picea-sitchensis-organelles-slides](https://github.com/sjackman/picea-sitchensis-organelles-slides)
+
+## Links
+
+[ABySS][]
+&middot; [ARCS][]
+&middot; [Architect][]
+&middot; [Fragscaff][]
+&middot; [LINKS][]
+&middot; [LongRanger][]
+&middot; [MAKER][]
+&middot; [Pilon][]
+&middot; [Prokka][]
+&middot; [RNAweasel][]
+&middot; [Sealer][]
+&middot; [Supernova][]
+
+[ABySS]: https://github.com/bcgsc/abyss
+[ARCS]: https://github.com/bcgsc/arcs
+[Architect]: https://github.com/kuleshov/architect
+[Fragscaff]: http://krishna.gs.washington.edu/software.html
 [Kollector]: https://github.com/bcgsc/kollector
+[LINKS]: https://github.com/warrenlr/LINKS
+[LongRanger]: https://support.10xgenomics.com/genome-exome/software/pipelines/latest/what-is-long-ranger
 [MAKER]: http://www.yandell-lab.org/software/maker.html
 [Pilon]: http://www.broadinstitute.org/software/pilon/]
 [Prokka]: http://www.vicbioinformatics.com/software.prokka.shtml
 [RNAweasel]: http://megasun.bch.umontreal.ca/RNAweasel/
 [Sealer]: https://github.com/bcgsc/abyss/tree/master/Sealer
+[Supernova]: http://support.10xgenomics.com/de-novo-assembly/software/overview/welcome
 
-Results
+Supplementary Slides
 ================================================================================
+
+## Future Work
+
++ Identify mitochondrial barcodes using the draft sitka spruce assembly rather than white spruce assembly
++ Fill gaps with [Sealer][] and [Kollector][]
++ Polish with [Pilon][]
++ Identify introns genome-wide using [RNAweasel][]
++ Assemble with 10x Genomics [Supernova][]
 
 ----------------------------------------
 
@@ -214,18 +257,10 @@ Results
 | Introns in coding genes     | 9 (8)     | 9 (6)
 | Introns in tRNA genes       | 6 (6)     | 0
 
-fin
-================================================================================
+## Scaffolding Tools for 10x
 
-## Links
-
-[ABySS][] | [ARCS][] | [Architect][] | [Fragscaff][] | | [LINKS][] | [MAKER][] | [Pilon][] | [Prokka][] | [Sealer][] | [Supernova][]
-
-
-## Shaun Jackman
-
-| [BC Cancer Agency Genome Sciences Centre][]
-| Vancouver, Canada
-| [\@sjackman][] | [github.com/sjackman][] | [sjackman.ca][]
-
-![](images/sjackman.jpg)
++ [ARCS][] with [LINKS][]
++ [Architect][] \
+  intended for synthetic long reads
++ [Fragscaff][] \
+  intended for contiguity-preserving transposition
