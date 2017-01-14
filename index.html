@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Shaun D Jackman">
+  <meta name="dcterms.date" content="2017-01-15">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="organellar-genomes-of-sitka-spruce-picea-sitchensis-assembly-and-annotation" class="slide level2">
+<h2>Organellar Genomes of Sitka Spruce (<em>Picea sitchensis</em>) Assembly and Annotation</h2>
+<p><strong>Shaun Jackman</strong> <a href="http://twitter.com/sjackman">@sjackman</a></p>
+<p>Benjamin P Vandervalk, Rene L Warren, Hamid Mohamadi, Justin Chu, Sarah Yeo, Lauren Coombe, Stephen Pleasance, Robin J Coope, Joerg Bohlmann, Steven JM Jones, Inanc Birol</p>
+<p>2017-01-15</p>
+<p><a href="https://sjackman.ca/picea-sitchensis-organelles-slides" class="uri">https://sjackman.ca/picea-sitchensis-organelles-slides</a></p>
+<p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="images/cc-by.png" alt="Creative Commons Attribution License" /></a></p>
+</section>
+<section id="shaun-jackman" class="slide level2">
+<h2>Shaun Jackman</h2>
+<div style="white-space: pre-line;"><a href="http://bcgsc.ca">BCCA Genome Sciences Centre</a>
+Vancouver, Canada
+<a href="http://twitter.com/sjackman">@sjackman</a> | <a href="https://github.com/sjackman">github.com/sjackman</a> | <a href="http://sjackman.ca">sjackman.ca</a></div>
+<figure>
+<img src="images/sjackman.jpg" />
+</figure>
+</section>
+<section><section id="background" class="titleslide slide level1"><h1>Background</h1></section><section id="conifer-genomics" class="slide level2">
+<h2>Conifer Genomics</h2>
+<ul>
+<li>Conifer genomes are large, about twenty gigabases</li>
+<li>Before 2013 no conifer genomes had been published</li>
+<li>Then three in the period of one year!
+<ul>
+<li>Loblolly pine (Neale et al. 2014)</li>
+<li>Norway spruce (Nystedt et al. 2013)</li>
+<li>White spruce (Birol et al. 2013)</li>
+</ul></li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="images/picea-sitchensis.jpg" alt="https://en.wikipedia.org/wiki/Picea_sitchensis" /><figcaption>https://en.wikipedia.org/wiki/Picea_sitchensis</figcaption>
+</figure>
+</section><section id="genome-skimming" class="slide level2">
+<h2>Genome Skimming</h2>
+<ul>
+<li>Whole genome sequencing data contains both nuclear and organellar reads</li>
+<li>Each cell contains hundreds of mitochondria and plastids</li>
+<li>Reads of the organellar genomes are abundant</li>
+<li>Organellar sequences assemble well with a single lane</li>
+<li>Single-copy nuclear sequences are too low depth to assemble well</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="images/picea-glauca-depth-gc.png" alt="White spruce depth and percent GC" /><figcaption>White spruce depth and percent GC</figcaption>
+</figure>
+</section><section id="classification" class="slide level2">
+<h2>Classification</h2>
+<ul>
+<li>Assembly is composed of
+<ul>
+<li>plastid sequence</li>
+<li>mitochondrial sequence</li>
+<li>nuclear repeat elements</li>
+</ul></li>
+<li>Identify putative organellar sequences by
+<ul>
+<li>homology to known organellar sequences</li>
+<li>depth of coverage</li>
+<li>length</li>
+<li>GC content</li>
+</ul></li>
+</ul>
+</section><section id="work-so-far" class="slide level2">
+<h2>Work so far</h2>
+<ul>
+<li>Assembled and published the annotated sequences of<br />
+complete <strong>white spruce plastid</strong> genome<br />
+draft <strong>white spruce mitochondrial</strong> genome<br />
+(Jackman et al. 2015)</li>
+<li>Assembled and published the annotated sequence of<br />
+complete <strong>Sitka spruce plastid</strong> genome<br />
+(Coombe et al. 2016)</li>
+<li>Currently working to assemble and annotate the<br />
+draft <strong>Sitka spruce mitochondrial</strong> genome</li>
+</ul>
+</section><section id="white-spruce-organelles" class="slide level2">
+<h2>White Spruce Organelles</h2>
+<ul>
+<li>Illumina paired-end
+<ul>
+<li>One 2x300 MiSeq lane for the plastid</li>
+<li>One 2x150 HiSeq lane for the mitochondrion</li>
+</ul></li>
+<li>Illumina mate-pair for scaffolding</li>
+<li>Assemble with <a href="https://github.com/bcgsc/abyss">ABySS</a>
+<ul>
+<li>Complete plastid genome in one contig</li>
+<li>Draft mitochondrial genome in 36 scaffolds</li>
+</ul></li>
+<li>Close gaps with <a href="https://github.com/bcgsc/abyss/tree/master/Sealer">Sealer</a></li>
+<li>Polish with <a href="http://www.broadinstitute.org/software/pilon/%5D">Pilon</a></li>
+<li>Annotate genes with <a href="http://www.yandell-lab.org/software/maker.html">Maker</a> and <a href="http://www.vicbioinformatics.com/software.prokka.shtml">Prokka</a></li>
+<li>Manual annotation of difficult genes
+<ul>
+<li>Three genes with short initial exons &lt; 10 bp</li>
+<li>One trans-spliced gene (<em>rps12</em>)</li>
+</ul></li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="images/picea-glauca-plastid.png" alt="White spruce plastid" /><figcaption>White spruce plastid</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="images/picea-glauca-mitochondrion.png" alt="White spruce mitochondrion" /><figcaption>White spruce mitochondrion</figcaption>
+</figure>
+</section></section>
+<section><section id="x-genomics-chromium" class="titleslide slide level1"><h1>10x Genomics Chromium</h1></section><section class="slide level2">
+
+<figure>
+<img src="images/10xgenomics.png" alt="10x Genomics Chromium Linked Reads http://www.10xgenomics.com/assembly/" /><figcaption>10x Genomics Chromium Linked Reads <a href="http://www.10xgenomics.com/assembly/" class="uri">http://www.10xgenomics.com/assembly/</a></figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="images/arcs.png" alt="ARCS https://github.com/bcgsc/arcs" /><figcaption>ARCS <a href="https://github.com/bcgsc/arcs" class="uri">https://github.com/bcgsc/arcs</a></figcaption>
+</figure>
+</section><section id="sitka-spruce-plastid" class="slide level2">
+<h2>Sitka Spruce Plastid</h2>
+<ul>
+<li>One lane of Illumina 2x150 HiSeq of 10x GemCode</li>
+<li>One library rather than two:<br />
+Illumina paired-end and mate-pair</li>
+<li>Assemble with <a href="https://github.com/bcgsc/abyss">ABySS</a></li>
+<li>Scaffold with <a href="https://github.com/bcgsc/arcs">ARCS</a> and <a href="https://github.com/warrenlr/LINKS">LINKS</a></li>
+<li>Close gaps with <a href="https://github.com/bcgsc/abyss/tree/master/Sealer">Sealer</a></li>
+<li>Polish with <a href="http://www.broadinstitute.org/software/pilon/%5D">Pilon</a></li>
+<li>Annotate with <a href="http://www.yandell-lab.org/software/maker.html">Maker</a></li>
+<li>Manual annotation of difficult genes</li>
+<li>Complete plastid genome in one contig</li>
+<li>Perfect synteny to white spruce plastid</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="images/picea-sitchensis-plastid.png" alt="Sitka spruce plastid" /><figcaption>Sitka spruce plastid</figcaption>
+</figure>
+</section></section>
+<section><section id="sitka-spruce-mitochondrion" class="titleslide slide level1"><h1>Sitka Spruce Mitochondrion</h1></section><section id="aim" class="slide level2">
+<h2>Aim</h2>
+<p>Assemble the Sitka spruce mitochondrion into a single scaffold* using 10x Chromium data and annotate it.</p>
+<p>* if it has a single chromosome</p>
+</section><section id="method" class="slide level2">
+<h2>Method</h2>
+<ul>
+<li>Align Sitka spruce reads to white spruce organelles with <a href="https://support.10xgenomics.com/genome-exome/software/pipelines/latest/what-is-long-ranger">LongRanger</a></li>
+<li>Identify 10x barcodes that contain at least one mitochondrial molecule
+<ul>
+<li>Four properly-paired mitochondrial reads</li>
+</ul></li>
+<li>Assemble these mitochondrial barcodes with <a href="https://github.com/bcgsc/abyss">ABySS</a></li>
+<li>Scaffold with <a href="https://github.com/bcgsc/arcs">ARCS</a> and <a href="https://github.com/warrenlr/LINKS">LINKS</a></li>
+<li>Annotate genes with <a href="http://www.yandell-lab.org/software/maker.html">MAKER</a> and <a href="http://www.vicbioinformatics.com/software.prokka.shtml">Prokka</a></li>
+</ul>
+</section><section id="classification-1" class="slide level2">
+<h2>Classification</h2>
+<ul>
+<li>Assembly is composed of
+<ul>
+<li>plastid sequence</li>
+<li>mitochondrial sequence</li>
+<li>nuclear repeat elements</li>
+</ul></li>
+<li>Identify putative organellar sequences by
+<ul>
+<li>homology to known organellar sequences</li>
+<li>depth of coverage</li>
+<li>length</li>
+<li>GC content</li>
+</ul></li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="images/size-depth.png" alt="Classifying Sitka spruce sequences" /><figcaption>Classifying Sitka spruce sequences</figcaption>
+</figure>
+</section><section id="results" class="slide level2">
+<h2>Results</h2>
+<ul>
+<li>Largest scaffold is 1.2 Mbp</li>
+<li>50% of the 6 Mbp genome in 4 scaffolds &gt; 460 kbp</li>
+<li>75% of the genome in 13 scaffolds &gt; 100 kbp</li>
+<li>1/223 or 0.45% of reads are mitochondrial</li>
+<li>115 ORFs with similarity to known mitochondrial genes</li>
+<li>1,154 other ORFS ≥ 300 bp</li>
+<li>9 Type II introns in 6 genes</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="images/picea-sitchensis-mitochondrion.png" alt="Sitka spruce mitochondrion" /><figcaption>Sitka spruce mitochondrion</figcaption>
+</figure>
+</section></section>
+<section><section id="fin" class="titleslide slide level1"><h1>fin</h1></section><section id="shaun-jackman-1" class="slide level2">
+<h2>Shaun Jackman</h2>
+<div style="white-space: pre-line;"><a href="http://bcgsc.ca">BCCA Genome Sciences Centre</a>
+Vancouver, Canada
+<a href="http://twitter.com/sjackman">@sjackman</a> | <a href="https://github.com/sjackman">github.com/sjackman</a> | <a href="http://sjackman.ca">sjackman.ca</a></div>
+<p><strong>Slides</strong><br />
+<a href="https://sjackman.ca/picea-sitchensis-organelles-slides" class="uri">https://sjackman.ca/picea-sitchensis-organelles-slides</a></p>
+<p><strong>Markdown source code</strong><br />
+<a href="https://github.com/sjackman/picea-sitchensis-organelles-slides">https://github.com/sjackman/<br />
+picea-sitchensis-organelles-slides</a></p>
+</section><section id="links" class="slide level2">
+<h2>Links</h2>
+<p><a href="https://github.com/bcgsc/abyss">ABySS</a> · <a href="https://github.com/bcgsc/arcs">ARCS</a> · <a href="https://github.com/kuleshov/architect">Architect</a> · <a href="http://krishna.gs.washington.edu/software.html">Fragscaff</a> · <a href="https://github.com/warrenlr/LINKS">LINKS</a> · <a href="https://support.10xgenomics.com/genome-exome/software/pipelines/latest/what-is-long-ranger">LongRanger</a> · <a href="http://www.yandell-lab.org/software/maker.html">MAKER</a> · <a href="http://www.broadinstitute.org/software/pilon/%5D">Pilon</a> · <a href="http://www.vicbioinformatics.com/software.prokka.shtml">Prokka</a> · <a href="http://megasun.bch.umontreal.ca/RNAweasel/">RNAweasel</a> · <a href="https://github.com/bcgsc/abyss/tree/master/Sealer">Sealer</a> · <a href="http://support.10xgenomics.com/de-novo-assembly/software/overview/welcome">Supernova</a></p>
+</section></section>
+<section><section id="supplementary-slides" class="titleslide slide level1"><h1>Supplementary Slides</h1></section><section id="future-work" class="slide level2">
+<h2>Future Work</h2>
+<ul>
+<li>Identify mitochondrial barcodes using the draft sitka spruce assembly rather than white spruce assembly</li>
+<li>Fill gaps with <a href="https://github.com/bcgsc/abyss/tree/master/Sealer">Sealer</a> and <a href="https://github.com/bcgsc/kollector">Kollector</a></li>
+<li>Polish with <a href="http://www.broadinstitute.org/software/pilon/%5D">Pilon</a></li>
+<li>Identify introns genome-wide using <a href="http://megasun.bch.umontreal.ca/RNAweasel/">RNAweasel</a></li>
+<li>Assemble with 10x Genomics <a href="http://support.10xgenomics.com/de-novo-assembly/software/overview/welcome">Supernova</a></li>
+</ul>
+</section><section class="slide level2">
+
+<table>
+<thead>
+<tr class="header">
+<th>Read Metrics</th>
+<th>Plastid</th>
+<th>Mitochondrion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Number of HiSeq lanes</td>
+<td>1 GemCode lane</td>
+<td>1 Chromium lane</td>
+</tr>
+<tr class="even">
+<td>Read length</td>
+<td>2 x 125 bp</td>
+<td>2 x 150 bp</td>
+</tr>
+<tr class="odd">
+<td>Number of read</td>
+<td>630 million</td>
+<td>843 million</td>
+</tr>
+<tr class="even">
+<td>Number selected for assembly</td>
+<td>4.3 million</td>
+<td>119 million</td>
+</tr>
+<tr class="odd">
+<td>Number mapped to assembly</td>
+<td>15,232 of 4.3 M</td>
+<td>3.78 M of 843 M</td>
+</tr>
+<tr class="even">
+<td>Proportion of organellar reads</td>
+<td>1/283 0.35%</td>
+<td>1/223 or 0.45%</td>
+</tr>
+<tr class="odd">
+<td>Depth of coverage</td>
+<td>17x</td>
+<td>40x</td>
+</tr>
+</tbody>
+</table>
+</section><section class="slide level2">
+
+<table>
+<thead>
+<tr class="header">
+<th>Assembly Metrics</th>
+<th>Plastid</th>
+<th>Mitochondrion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Assembled genome size</td>
+<td>124,029 bp</td>
+<td>6.09 Mbp</td>
+</tr>
+<tr class="even">
+<td>Number of contigs</td>
+<td>1 contig</td>
+<td>1,216 contigs</td>
+</tr>
+<tr class="odd">
+<td>Contig N50</td>
+<td>124 kbp</td>
+<td>13.7 kbp</td>
+</tr>
+<tr class="even">
+<td>Number of scaffolds</td>
+<td>1 scaffold</td>
+<td>239 scaffolds</td>
+</tr>
+<tr class="odd">
+<td>Scaffold N50</td>
+<td>124 kbp</td>
+<td>461 kbp</td>
+</tr>
+<tr class="even">
+<td>Largest scaffold</td>
+<td>124 kbp</td>
+<td>1,223 kbp</td>
+</tr>
+<tr class="odd">
+<td>GC content</td>
+<td>38.8%</td>
+<td>43.6%</td>
+</tr>
+</tbody>
+</table>
+</section><section class="slide level2">
+
+<table>
+<thead>
+<tr class="header">
+<th>Annotation Metrics</th>
+<th>Plastid</th>
+<th>Mitochondrion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Number of genes w/o ORFS</td>
+<td>114 (108)</td>
+<td>115 (67)</td>
+</tr>
+<tr class="even">
+<td>Protein-coding genes (mRNA)</td>
+<td>74 (72)</td>
+<td>84 (47)</td>
+</tr>
+<tr class="odd">
+<td>rRNA genes</td>
+<td>4 (4)</td>
+<td>3 (2)</td>
+</tr>
+<tr class="even">
+<td>tRNA genes</td>
+<td>36 (32)</td>
+<td>25 (18)</td>
+</tr>
+<tr class="odd">
+<td>ORFs ≥ 300 bp</td>
+<td>4</td>
+<td>1,154</td>
+</tr>
+<tr class="even">
+<td>Introns in coding genes</td>
+<td>9 (8)</td>
+<td>9 (6)</td>
+</tr>
+<tr class="odd">
+<td>Introns in tRNA genes</td>
+<td>6 (6)</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</section><section id="scaffolding-tools-for-10x" class="slide level2">
+<h2>Scaffolding Tools for 10x</h2>
+<ul>
+<li><a href="https://github.com/bcgsc/arcs">ARCS</a> with <a href="https://github.com/warrenlr/LINKS">LINKS</a></li>
+<li><a href="https://github.com/kuleshov/architect">Architect</a><br />
+intended for synthetic long reads</li>
+<li><a href="http://krishna.gs.washington.edu/software.html">Fragscaff</a><br />
+intended for contiguity-preserving transposition</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
