@@ -54,14 +54,14 @@ Background
 
 ----------------------------------------
 
-![White spruce depth vs percent GC](images/picea-glauca-depth-gc.png)
+![White spruce depth and percent GC](images/picea-glauca-depth-gc.png)
 
 ## Classification
 
 + Assembly is composed of
-    + organellar sequence
+    + plastid sequence
+    + mitochondrial sequence
 	+ nuclear repeat elements
-	+ contamination
 + Identify putative organellar sequences by
     + homology to known organellar sequences
     + depth of coverage
@@ -150,6 +150,22 @@ Assemble the Sitka spruce mitochondrion into a single scaffold\* using 10x Chrom
 + Assemble these mitochondrial barcodes with [ABySS][]
 + Scaffold with [ARCS][] and [LINKS][]
 + Annotate genes with [MAKER][] and [Prokka][]
+
+## Classification
+
++ Assembly is composed of
+    + plastid sequence
+    + mitochondrial sequence
+	+ nuclear repeat elements
++ Identify putative organellar sequences by
+    + homology to known organellar sequences
+    + depth of coverage
+    + length
+    + GC content
+
+----------------------------------------
+
+![Classifying Sitka spruce sequences](images/size-depth.png)
 
 ## Results
 
