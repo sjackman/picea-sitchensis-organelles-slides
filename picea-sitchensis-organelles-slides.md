@@ -44,6 +44,10 @@ Background
     + Norway spruce (Nystedt et al. 2013)
     + White spruce (Birol et al. 2013)
 
+----------------------------------------
+
+![https://en.wikipedia.org/wiki/Picea_sitchensis](images/picea-sitchensis.jpg)
+
 ## Genome Skimming
 
 + Whole genome sequencing data contains both nuclear and organellar reads
